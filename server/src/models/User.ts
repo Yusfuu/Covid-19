@@ -1,10 +1,9 @@
 import { Schema, model } from 'mongoose';
 
 // 1. Create an interface representing a document in MongoDB.
-
 interface Ivaccination {
   shot: Number;
-  value: Boolean;
+  datetime: Date;
 }
 
 export interface IUser {
@@ -12,20 +11,20 @@ export interface IUser {
   birthday: Date;
   address: string;
   phone: string;
-  vaccination: Ivaccination[];
+  vaccinations: Ivaccination[];
 }
 
 // 2. Create a Schema corresponding to the document interface.
 const schema = new Schema<IUser>(
   {
-    cin: { type: String, required: true },
+    cin: { type: String, required: true, unique: true },
     birthday: { type: Date, required: true },
     address: { type: String },
     phone: { type: String },
-    vaccination: [
+    vaccinations: [
       {
-        shot: { type: Number, required: true },
-        value: { type: Boolean, required: true },
+        shot: { type: Number, required: true, enum: [1, 2, 3] },
+        datetime: { type: Date, required: true, default: Date.now },
       },
     ],
   },
