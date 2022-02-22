@@ -1,5 +1,4 @@
 import { connect } from 'mongoose';
-
 export const db = async () => {
   const DATABASE_URL = process.env.DATABASE_URL as string;
 
@@ -8,6 +7,5 @@ export const db = async () => {
     console.error(message);
     process.exit(1);
   });
-
   return connection;
 };

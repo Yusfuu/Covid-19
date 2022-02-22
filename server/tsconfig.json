@@ -10,6 +10,7 @@
     "moduleResolution": "Node",
     "incremental": true,
     "baseUrl": "src",
+    "types": ["@types/jest"],
     "paths": {
       "@lib/*": ["lib/*"],
       "@utils/*": ["utils/*"],
@@ -24,6 +25,6 @@
       "@config/*": ["config/*"]
     }
   },
-  "exclude": ["build", "tests", "node_modules"],
+  "exclude": ["build", "__test__", "node_modules"],
   "include": ["src/**/*.ts"]
 }
