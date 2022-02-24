@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, ObjectId } from 'mongoose';
 
 // 1. Create an interface representing a document in MongoDB.
 interface Ivaccination {
@@ -12,6 +12,7 @@ export interface IUser {
   address: string;
   phone: string;
   vaccinations: Ivaccination[];
+  center: ObjectId;
 }
 
 // 2. Create a Schema corresponding to the document interface.
@@ -27,6 +28,7 @@ const schema = new Schema<IUser>(
         datetime: { type: Date, required: true, default: Date.now },
       },
     ],
+    center: { type: Schema.Types.ObjectId, ref: 'Center' },
   },
   { timestamps: true }
 );

@@ -4,7 +4,7 @@ import compression from 'compression';
 import { limiter } from '@middlewares/limiter';
 import helmet from 'helmet';
 import { db } from '@config/db';
-import { user } from '@routes/index';
+import { center, user } from '@routes/index';
 
 const app = express();
 
@@ -16,6 +16,7 @@ app.use(limiter);
 
 // All routes should live here
 app.use('/api/user', user);
+app.use('/api/center', center);
 
 const port = process.env.PORT || 5000;
 
