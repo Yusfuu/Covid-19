@@ -148,6 +148,7 @@ function DrawerExample() {
 
 const Home: NextPage = () => {
   const { data, isLoading } = useCenters();
+  console.log(data);
 
   if (isLoading) {
     return null;

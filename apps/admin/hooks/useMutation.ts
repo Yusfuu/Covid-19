@@ -7,7 +7,7 @@ export const useMutation: any = (
 ) => {
   return Mutation(
     (body: any) =>
-      fetcher(process.env.NEXT_PUBLIC_BACKEND + url, {
+      fetcher("http://localhost:5000/api" + url, {
         method: 'POST',
         body: JSON.stringify(body),
         headers: {

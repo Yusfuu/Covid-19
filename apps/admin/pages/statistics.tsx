@@ -22,6 +22,8 @@ const Home: NextPage = () => {
 
   const { data } = useStats();
 
+  let total=data?.stats?.first?.count + data?.stats?.second?.count+data?.stats?.third?.count;
+
   return (
     <>
       <Head>
@@ -50,6 +52,7 @@ const Home: NextPage = () => {
             <StatNumber>{data?.stats?.first?.count}</StatNumber>
             <StatHelpText>
               <StatArrow type='increase' />
+              {data?.stats?.first?.count*100/total} %
               23.36%
             </StatHelpText>
           </Stat>
@@ -59,7 +62,8 @@ const Home: NextPage = () => {
             <StatNumber>{data?.stats?.second?.count}</StatNumber>
             <StatHelpText>
               <StatArrow type='decrease' />
-              9.05%
+              {data?.stats?.second?.count*100/total} %
+
             </StatHelpText>
           </Stat>
 
@@ -68,7 +72,8 @@ const Home: NextPage = () => {
             <StatNumber>{data?.stats?.third?.count}</StatNumber>
             <StatHelpText>
               <StatArrow type='decrease' />
-              9.05%
+              {data?.stats?.third?.count*100/total} %
+
             </StatHelpText>
           </Stat>
         </StatGroup>
