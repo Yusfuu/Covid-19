@@ -19,7 +19,6 @@
       "@models/*": ["models/*"],
       "@controllers/*": ["controllers/*"],
       "@middlewares/*": ["middlewares/*"],
-      "@interfaces/*": ["interfaces/*"],
       "@config/*": ["config/*"]
     }
   },

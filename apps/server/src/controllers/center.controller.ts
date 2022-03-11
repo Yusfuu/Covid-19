@@ -16,8 +16,6 @@ export const createCenter = catchAsync(async (req: Request, res: Response) => {
 
 // show stats
 export const showStats = catchAsync(async (req: Request, res: Response) => {
-  // const { shot } = req.body;
-
   const [first, second, third] = await User.aggregate([
     {
       $group: {

@@ -1,12 +1,11 @@
-// import 'dotenv/config';
+import 'dotenv/config';
 import express from 'express';
 import compression from 'compression';
 import helmet from 'helmet';
 import { db } from '@config/db';
 import { limiter } from '@middlewares/limiter';
-import { admin, center, user } from '@routes/index';
-var cors = require('cors')
-
+import { admin, center, director, user } from '@routes/index';
+import cors from 'cors';
 
 const app = express();
 
@@ -25,14 +24,15 @@ app.get('/', (req, res) => {
     message: 'Welcome to the API',
   });
 });
+
 app.use('/api/user', user);
 app.use('/api/admin', admin);
 app.use('/api/center', center);
+app.use('/api/director', director);
 
-// const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 // listen to port you specified
-let port=5000
 app.listen(port, async () => {
   const { connection } = await db();
   console.log(`🚀 Server ready at: http://localhost:${port}`);

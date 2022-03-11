@@ -1,7 +1,8 @@
 import { User } from '@models/User';
+import { catchAsync } from '@utils/catchAsync';
 import { Request, Response } from 'express';
 
-export const login = async (req: Request, res: Response) => {
+export const login = catchAsync(async (req: Request, res: Response) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
   if (!user) {
@@ -19,4 +20,4 @@ export const login = async (req: Request, res: Response) => {
   return res.status(200).json({
     user,
   });
-};
+});
