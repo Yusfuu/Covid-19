@@ -6,3 +6,9 @@ export const useStats = () => {
     fetcher('http://localhost:5000/api/center/stats')
   );
 };
+
+export const useDirictorStats = () => {
+  return useQuery('director_stats', () =>
+    fetcher('http://localhost:5000/api/director/stats')
+  );
+};

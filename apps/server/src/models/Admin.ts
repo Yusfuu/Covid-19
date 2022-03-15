@@ -5,6 +5,7 @@ export interface IAdmin {
   name: string;
   email: string;
   password: string | undefined;
+  regional: string;
   centers: string[];
 }
 
@@ -22,6 +23,10 @@ const schema = new Schema<IAdmin>(
       required: true,
     },
     password: {
+      type: String,
+      required: true,
+    },
+    regional: {
       type: String,
       required: true,
     },

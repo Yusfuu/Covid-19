@@ -34,7 +34,7 @@ const Option2 : React.FC<Props>=({updateAuthorisation,nextClicked})=> {
       <TextField
           id="outlined-multiline-static"
           label="Effets secondaires"
-          name="effectSecondaireVaccin1"
+          name="effectSecondaireVaccin"
           multiline
           rows={4}
         />
